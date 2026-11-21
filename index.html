@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Спартак Москва</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f5f5;color:#222;font-family:Arial,sans-serif}
+header{background:#d71920;color:white;padding:22px 18px}
+header h1{margin:0;font-size:26px}
+header p{margin:7px 0 0}
+nav{display:flex;background:#fff;overflow:auto}
+nav button{flex:1;padding:15px 6px;border:0;background:white;font-weight:bold}
+nav button.active{color:#d71920;border-bottom:3px solid #d71920}
+main{padding:15px}
+.card{background:white;border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 2px 8px #ddd}
+h2{font-size:19px;margin:0 0 12px}
+.match{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
+.red{color:#d71920;font-weight:bold}
+.small{color:#777;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>🔴⚪ СПАРТАК МОСКВА</h1>
+<p>Фанатский центр матчей</p>
+</header>
+<nav>
+<button class="active" onclick="show('matches',this)">Матчи</button>
+<button onclick="show('table',this)">Таблица</button>
+<button onclick="show('stats',this)">Статистика</button>
+</nav>
+<main id="content"></main>
+<script>
+const content=document.getElementById('content');
+function show(page,btn){
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+if(page==='matches'){
+content.innerHTML=`
+<div class="card">
+<h2>⚽ Матчи Спартака</h2>
+<p class="small">Расписание и результаты</p>
+<div class="match"><div>Спартак Москва</div><div class="red">—</div><div>Соперник</div></div>
+<p>Здесь будет актуальное расписание матчей.</p>
+</div>`;
+}
+if(page==='table'){
+content.innerHTML=`
+<div class="card">
+<h2>🏆 Турнирная таблица</h2>
+<p>Текущая таблица РПЛ появится здесь.</p>
+</div>`;
+}
+if(page==='stats'){
+content.innerHTML=`
+<div class="card">
+<h2>📊 Статистика</h2>
+<p>Статистика команды появится здесь.</p>
+</div>`;
+}
+}
+show('matches',document.querySelector('nav button'));
+</script>
+</body>
+</html>
