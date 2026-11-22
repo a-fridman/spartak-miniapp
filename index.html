@@ -5,124 +5,198 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Спартак Football</title>
+<title>СпартакFootball</title>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;background:#101014;color:#fff;
- font-family:Inter,Arial,sans-serif;padding:22px 18px 100px;
-}
-.muted{color:#8b8b94}
+body{margin:0;background:#101014;color:white;font-family:Arial,sans-serif;padding:20px 18px 100px}
+button{cursor:pointer;font-family:inherit}
+.muted{color:#909098}
 .header{display:flex;justify-content:space-between;align-items:center}
-h1{font-size:27px;margin:12px 0 0}
-.sub{font-size:13px;color:#8b8b94}
-.icons{display:flex;gap:10px}
-.circle{width:38px;height:38px;border-radius:50%;background:#1c1c22;display:grid;place-items:center}
-.greeting{margin:26px 0 18px;font-size:16px}
-.match{
- background:linear-gradient(135deg,#e30613,#a5000a);
- border-radius:22px;padding:20px;position:relative;overflow:hidden
-}
-.match small{letter-spacing:1.3px;opacity:.8}
-.match h2{font-size:23px;margin:14px 0 8px}
-.match p{font-size:13px;margin:0 0 18px}
-.ticket{
- background:#fff;color:#e30613;border:0;border-radius:30px;
- padding:11px 18px;font-weight:bold
-}
-.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
-.quick div{background:#1c1c22;border-radius:13px;padding:14px 4px;text-align:center;font-size:12px}
-.quick span{display:block;margin-bottom:6px;font-size:17px}
+h1{font-size:28px;margin:10px 0 0}
+.sub{font-size:13px;color:#909098}
+.circle{width:40px;height:40px;border:0;border-radius:50%;background:#1c1c22;color:white;font-size:18px}
+.greeting{margin:25px 0 18px}
+.match{background:linear-gradient(135deg,#e30613,#a5000a);border-radius:22px;padding:20px;margin-bottom:20px}
+.match small{opacity:.8;letter-spacing:1px}
+.match h2{font-size:23px;margin:15px 0 8px}
+.match p{font-size:13px}
+.ticket{background:white;color:#e30613;border:0;border-radius:30px;padding:12px 18px;font-weight:bold}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px}
+.quick button{background:#1c1c22;color:white;border:0;border-radius:13px;padding:12px 3px;font-size:12px}
+.quick span{display:block;font-size:20px;margin-bottom:6px}
 .section{margin-top:28px}
 .section-title{display:flex;justify-content:space-between;align-items:center}
 .section-title h3{font-size:18px;margin:0}
-.red{color:#e30613;font-size:13px;font-weight:bold}
+.red{color:#ff3434}
 .news{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-.news-card{background:#1c1c22;border-radius:17px;overflow:hidden}
-.news-image{height:75px;display:grid;place-items:center;font-size:28px}
-.news-card h4{font-size:13px;margin:10px 12px 5px}
-.news-card small{color:#8b8b94;margin:0 12px 12px;display:block;font-size:11px}
+.news-card{background:#1c1c22;border:0;color:white;text-align:left;border-radius:17px;overflow:hidden;padding:0}
+.news-image{height:80px;display:grid;place-items:center;font-size:30px}
+.news-card h4{font-size:13px;margin:10px}
+.news-card small{color:#909098;display:block;margin:0 10px 12px}
 .table{background:#17171c;border-radius:19px;margin-top:14px;padding:12px}
-.row{display:grid;grid-template-columns:24px 1fr 35px;align-items:center;padding:11px 5px;font-size:13px}
+.row{display:grid;grid-template-columns:24px 1fr 35px;padding:12px 5px;font-size:13px}
 .row:not(:last-child){border-bottom:1px solid #25252b}
-.pos{color:#8b8b94}
 .points{text-align:right;font-weight:bold}
-.highlight{color:#fff;font-weight:bold}
-.bottom{
- position:fixed;bottom:0;left:0;right:0;background:#15151a;
- padding:12px 18px 24px;z-index:10
-}
-.nav{background:#1c1c22;border-radius:20px;display:flex;justify-content:space-around;padding:12px 3px}
-.nav-item{text-align:center;color:#8b8b94;font-size:10px;min-width:45px}
-.nav-item div{font-size:19px;margin-bottom:4px}
-.active{color:#e30613;font-weight:bold}
+.page{display:none}
+.page.active{display:block}
+.list-card{background:#1c1c22;border-radius:17px;padding:17px;margin:12px 0}
+.list-card h3{margin:0 0 8px}
+.list-card p{font-size:13px;color:#a0a0a8;margin:6px 0}
+.action{width:100%;background:#e30613;color:white;border:0;border-radius:13px;padding:14px;font-weight:bold;margin-top:10px}
+.secondary{background:#25252b;color:white}
+.back{border:0;background:transparent;color:#ff3434;font-size:15px;padding:10px 0;margin-bottom:15px}
+.detail{background:#1c1c22;border-radius:20px;padding:20px;margin-top:15px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#15151a;padding:12px 18px 22px;z-index:5}
+.nav{background:#1c1c22;border-radius:20px;display:flex;justify-content:space-around;padding:12px 2px}
+.nav button{border:0;background:none;color:#92929a;font-size:10px;min-width:48px}
+.nav button div{font-size:19px;margin-bottom:4px}
+.nav button.active{color:#e30613;font-weight:bold}
+.notice{background:#1c1c22;border-radius:14px;padding:14px;color:#bbb;font-size:13px;margin-top:15px}
 </style>
 </head>
 <body>
+
 <header class="header">
- <div>
-  <h1>Спартак</h1>
-  <div class="sub">Москва</div>
- </div>
- <div class="icons">
-  <div class="circle">🔔</div>
-  <div class="circle">⚙️</div>
- </div>
+ <div><h1>Спартак</h1><div class="sub">Москва · SpartakFootball</div></div>
+ <button class="circle" onclick="showPage('profile')" aria-label="Профиль">◉</button>
 </header>
 
+<!-- ГЛАВНАЯ -->
+<main id="home" class="page active">
 <div class="greeting">Привет, болельщик! 👋</div>
 
-<section class="match">
- <small>СЛЕДУЮЩИЙ МАТЧ</small>
- <h2>Спартак — Динамо</h2>
- <p>21 июля · 19:30 · Лукойл Арена</p>
- <button class="ticket">Купить билет</button>
-</section>
+<div class="match" onclick="showPage('matches')" style="cursor:pointer">
+ <small>БЛИЖАЙШИЙ МАТЧ · ДЕМО</small>
+ <h2>Спартак — Соперник</h2>
+ <p>Дата и время уточняются</p>
+ <button class="ticket" onclick="event.stopPropagation();showPage('tickets')">Билеты</button>
+</div>
 
 <div class="quick">
- <div><span>🔴</span>Live</div>
- <div><span>🎟️</span>Билеты</div>
- <div><span>🏆</span>Таблица</div>
- <div><span>🛍️</span>Магазин</div>
+ <button onclick="showPage('matches')"><span>⚽</span>Матчи</button>
+ <button onclick="showPage('tickets')"><span>🎟</span>Билеты</button>
+ <button onclick="showPage('table')"><span>🏆</span>Таблица</button>
+ <button onclick="showPage('club')"><span>🔴</span>Клуб</button>
 </div>
 
 <section class="section">
- <div class="section-title">
-  <h3>Новости</h3>
-  <span class="red">Все →</span>
- </div>
+ <div class="section-title"><h3>Новости</h3><button class="back" onclick="showPage('news')">Все →</button></div>
  <div class="news">
-  <article class="news-card">
+  <button class="news-card" onclick="openNews('Новость клуба','Здесь будет текст новости о Спартаке.')">
    <div class="news-image" style="background:#2a1012">🔴⚽</div>
-   <h4>Победа в дерби</h4>
-   <small>2 часа назад</small>
-  </article>
-  <article class="news-card">
-   <div class="news-image" style="background:#1a2430">⚽🔵</div>
-   <h4>Новый трансфер</h4>
-   <small>5 часов назад</small>
-  </article>
+   <h4>Новости клуба</h4><small>Открыть</small>
+  </button>
+  <button class="news-card" onclick="openNews('Новости трансферов','Здесь будут подтверждённые новости о трансферах.')">
+   <div class="news-image" style="background:#1a2430">⚽</div>
+   <h4>Трансферы</h4><small>Открыть</small>
+  </button>
  </div>
 </section>
 
 <section class="section">
- <div class="section-title"><h3>Турнирная таблица</h3><span class="red">РПЛ</span></div>
+ <div class="section-title"><h3>Турнирная таблица</h3><button class="back" onclick="showPage('table')">Подробнее →</button></div>
  <div class="table">
-  <div class="row"><span class="pos">1</span><span class="highlight">Спартак</span><span class="points">42</span></div>
-  <div class="row"><span class="pos">2</span><span>Зенит</span><span class="points">39</span></div>
-  <div class="row"><span class="pos">3</span><span>Динамо</span><span class="points">35</span></div>
-  <div class="row"><span class="pos">4</span><span>Локомотив</span><span class="points">33</span></div>
+  <div class="row"><span>1</span><span>Команда</span><span class="points">—</span></div>
+  <div class="row"><span>2</span><span>Команда</span><span class="points">—</span></div>
+  <div class="row"><span>3</span><span>Команда</span><span class="points">—</span></div>
+  <div class="row"><span>4</span><span>Спартак</span><span class="points">—</span></div>
  </div>
+ <div class="notice">Таблица пока демонстрационная. Подключим актуальные данные.</div>
+</section>
+</main>
+
+<!-- МАТЧИ -->
+<section id="matches" class="page">
+ <h2>⚽ Матчи</h2>
+ <div class="list-card"><h3>Спартак — Соперник</h3><p>Календарь ближайших игр появится здесь.</p><button class="action" onclick="openNews('Матч','Здесь будет подробная статистика матча.')">Подробнее</button></div>
+ <div class="list-card"><h3>Последние результаты</h3><p>Результаты матчей подключим из источника данных.</p></div>
+ <div class="list-card"><h3>📊 Прогнозы</h3><p>Вероятности исходов, форма команд, аргументы и аналитика.</p><button class="action" onclick="openNews('Прогнозы','Здесь будет анализ матча, вероятности победы, ничьей и поражения, а также объяснение прогноза.')">Открыть прогнозы</button></div>
 </section>
 
+<!-- БИЛЕТЫ -->
+<section id="tickets" class="page">
+ <h2>🎟 Билеты</h2>
+ <div class="list-card"><h3>Билеты на матчи</h3><p>Информация о билетах, стадионе и официальных продажах.</p></div>
+ <div class="notice">Ссылки на покупку добавим только на официальные источники.</div>
+</section>
+
+<!-- ТАБЛИЦА -->
+<section id="table" class="page">
+ <h2>🏆 Турнирная таблица</h2>
+ <div class="table">
+  <div class="row"><span>1</span><span>Команда</span><span class="points">—</span></div>
+  <div class="row"><span>2</span><span>Команда</span><span class="points">—</span></div>
+  <div class="row"><span>3</span><span>Команда</span><span class="points">—</span></div>
+  <div class="row"><span>4</span><span>Спартак</span><span class="points">—</span></div>
+  <div class="row"><span>5</span><span>Команда</span><span class="points">—</span></div>
+ </div>
+ <div class="notice">Это временная заглушка, а не актуальная таблица РПЛ.</div>
+</section>
+
+<!-- КЛУБ -->
+<section id="club" class="page">
+ <h2>🔴 Клуб</h2>
+ <div class="list-card"><h3>ФК «Спартак» Москва</h3><p>История · Символика · Стадион · Игроки</p></div>
+ <div class="list-card" onclick="openNews('История Спартака','Раздел истории клуба будет наполнен материалами.')"><h3>История клуба →</h3></div>
+ <div class="list-card" onclick="openNews('Состав команды','Здесь будет текущий состав команды.')"><h3>Состав команды →</h3></div>
+</section>
+
+<!-- НОВОСТИ -->
+<section id="news" class="page">
+ <h2>📰 Новости</h2>
+ <div class="list-card" onclick="openNews('Новости клуба','Здесь появится лента новостей клуба из проверенных источников.')"><h3>Новости клуба →</h3><p>Открыть ленту</p></div>
+ <div class="list-card" onclick="openNews('Трансферы','Здесь будут новости о подтверждённых трансферах.')"><h3>Трансферы →</h3></div>
+</section>
+
+<!-- ПРОФИЛЬ -->
+<section id="profile" class="page">
+ <h2>◉ Профиль</h2>
+ <div class="list-card"><h3>Болельщик «Спартака»</h3><p>Настройки приложения</p></div>
+ <div class="list-card" onclick="openNews('О приложении','SpartakFootball — фанатский Mini App. Информация и аналитика.')"><h3>О приложении →</h3></div>
+ <div class="list-card" onclick="openNews('Настройки','Настройки добавим следующим этапом.')"><h3>Настройки →</h3></div>
+</section>
+
+<!-- ВНУТРЕННЯЯ СТРАНИЦА -->
+<section id="inner" class="page">
+ <button class="back" onclick="goBack()">← Назад</button>
+ <h2 id="innerTitle"></h2>
+ <div class="detail"><p id="innerText"></p></div>
+</section>
+
+<!-- НАВИГАЦИЯ -->
 <div class="bottom">
  <div class="nav">
-  <div class="nav-item active"><div>⌂</div>Главная</div>
-  <div class="nav-item"><div>⚽</div>Матчи</div>
-  <div class="nav-item"><div>🎟</div>Билеты</div>
-  <div class="nav-item"><div>◆</div>Клуб</div>
-  <div class="nav-item"><div>◉</div>Профиль</div>
+  <button id="nav-home" class="active" onclick="showPage('home')"><div>⌂</div>Главная</button>
+  <button id="nav-matches" onclick="showPage('matches')"><div>⚽</div>Матчи</button>
+  <button id="nav-tickets" onclick="showPage('tickets')"><div>🎟</div>Билеты</button>
+  <button id="nav-club" onclick="showPage('club')"><div>◆</div>Клуб</button>
+  <button id="nav-profile" onclick="showPage('profile')"><div>◉</div>Профиль</button>
  </div>
 </div>
+
+<script>
+let currentPage='home';
+let previousPage='home';
+
+function showPage(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ const page=document.getElementById(id);
+ if(page) page.classList.add('active');
+ currentPage=id;
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+ const nav=document.getElementById('nav-'+id);
+ if(nav) nav.classList.add('active');
+ window.scrollTo(0,0);
+}
+
+function openNews(title,text){
+ previousPage=currentPage;
+ document.getElementById('innerTitle').textContent=title;
+ document.getElementById('innerText').textContent=text;
+ showPage('inner');
+}
+
+function goBack(){showPage(previousPage);}
+</script>
 </body>
 </html>
